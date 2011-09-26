@@ -3,7 +3,33 @@
 <head>
 <meta charset="utf-8" />
 <title></title>
+<script>
+domains = {
+	local: {
+		name: "LocalHost",
+		desc: "Don't Try This at Home",
+		tld: ["com","net","org"]
+	}
+}
+scope = domains["local"];
+</script>
 </head>
 <body>
+<header></header>
+<aside></aside>
+<script>
+nodeH1 = document.createElement("h1");
+nodeH1.innerHTML = scope.name;
+nodeH2 = document.createElement("h2");
+nodeH2.innerHTML = scope.desc;
+document.getElementsByTagName("header").item(0).appendChild(nodeH1);
+document.getElementsByTagName("header").item(0).appendChild(nodeH2);
+nodeAside = "<ul>";
+for (var i in scope.tld) {
+	nodeAside += "<li>" + scope.name.toLowerCase() + "." + scope.tld[i] + "</li>";
+}
+nodeAside += "</ul>";
+document.getElementsByTagName("aside").item(0).innerHTML = nodeAside;
+</script>
 </body>
 </html>
