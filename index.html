@@ -18,8 +18,8 @@ domains = {
 }
 scope = domains["local"];
 if (document.domain) {
-	var domain = document.domain.split(".");
-	scope = domain[domain.length - 2];
+	var host = "github.com".split(".");
+	scope = domains[host[host.length - 2]];
 }
 </script>
 </head>
