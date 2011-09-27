@@ -18,14 +18,21 @@ domains = {
 }
 scope = domains["local"];
 if (document.domain) {
-	var host = "github.com".split(".");
+	var host = document.domain.split(".");
 	scope = domains[host[host.length - 2]];
 }
+document.title = scope.name + " - For Sale!";
 </script>
 </head>
 <body>
-<header></header>
-<aside></aside>
+<header id="header">
+</header>
+<section>
+<aside id="aside">
+</aside>
+<article id="article">
+</article>
+</section>
 <script>
 nodeH1 = document.createElement("h1");
 nodeH1.innerHTML = scope.name;
