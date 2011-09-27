@@ -26,6 +26,7 @@ document.title = scope.name + " - For Sale!";
 </head>
 <body>
 <header id="header">
+<h4>This domain is up for sale... bid NOW!</h4>
 </header>
 <section>
 <aside id="aside">
@@ -34,18 +35,24 @@ document.title = scope.name + " - For Sale!";
 </article>
 </section>
 <script>
-nodeH1 = document.createElement("h1");
-nodeH1.innerHTML = scope.name;
-nodeH2 = document.createElement("h2");
-nodeH2.innerHTML = scope.desc;
-document.getElementsByTagName("header").item(0).appendChild(nodeH1);
-document.getElementsByTagName("header").item(0).appendChild(nodeH2);
+// ---------- + Render Header ---------- //
+function renderHeader (h) {
+	var header = document.getElementById("header"), node;
+	for (var i in h) {
+		node = document.createElement(i);
+		node.innerHTML = scope[h[i]];
+		header.appendChild(node);
+	}
+} renderHeader ({h1:"name",h2:"desc"});
+// ---------- - Render Header ---------- //
+// ---------- + Render Aside ---------- //
 nodeAside = "<ul>";
 for (var i in scope.tld) {
 	nodeAside += "<li>" + scope.name.toLowerCase() + "." + scope.tld[i] + "</li>";
 }
 nodeAside += "</ul>";
-document.getElementsByTagName("aside").item(0).innerHTML = nodeAside;
+document.getElementById("aside").innerHTML = nodeAside;
+// ---------- - Render Aside ---------- //
 </script>
 </body>
 </html>
