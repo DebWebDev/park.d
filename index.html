@@ -28,6 +28,11 @@ body {
 	margin: 0;
 	width: 100%;
 	height: 100%;
+	background-color: #305070;
+	background-attachment: fixed;
+	background-image: radial-gradient(top, cover, #4080b0 0%, #003060 100%);
+	background-image: -moz-radial-gradient(top, cover, #4080b0 0%, #003060 100%);
+	background-image: -webkit-radial-gradient(top, cover, #4080b0 0%, #003060 100%);
 	font-family: Verdana, Geneva, Helvetica sans-serif;
 }
 header#header  {
@@ -35,19 +40,12 @@ header#header  {
 	height: 50%;
 	background: #eee;
 	border-bottom: 2px solid #999;
-	box-shadow: 0 0 20px #666;
-}
-section#section,
-header#header h1,
-header#header h2,
-header#header h3 {
-	width: 80%;
-	cursor: default;
-	min-width: 480px;
-	max-width: 1280px;
+	box-shadow: 0 0 20px #000;
 }
 header#header h1,
 header#header h2 {
+	width: 100%;
+	cursor: default;
 	margin: 24px auto;
 	text-align: center;
 }
@@ -63,21 +61,42 @@ header#header h2 {
 }
 header#header nav {
 	height: 48px;
-	background: #333;
+	box-shadow: 0 0 10px #666;
+	background-color: #333;
+	background-image: linear-gradient(top, #444, #000);
+	background-image: -o-linear-gradient(top, #444, #000);
+	background-image: -ms-linear-gradient(top, #444, #000);
+	background-image: -moz-linear-gradient(top, #444, #000);
+	background-image: -webkit-linear-gradient(top, #444, #000);
 }
 header#header nav h3 {
 	color: #eee;
-	margin: auto;
+	margin: auto 10%;
 	font-size: 18px;
 	padding-top: 12px;
 }
-
-section#section {
-	margin: auto;
+header#header nav h3:hover {
+	color: #ffc;
+	cursor: pointer;
+	text-shadow: 0 0 10px #fff;
 }
+section#section {
+	width: 80%;
+	margin: auto;
+	padding: 48px 0;
+	min-width: 480px;
+	max-width: 1280px;
+}
+section > *:nth-child(odd) { padding: 0 64px; }
 @media handheld and (min-width: 960px), screen and (min-width: 960px) {
 	section { display: table; }
-	section > * { width: 50%; display: table-cell; }
+	section > *:nth-child(odd) { width: 50%; display: table-cell; }
+	section #separator {
+		width: 5px; height: 100%; display: table-cell;
+		background-image: radial-gradient(center, contain, rgba(0,32,64,0.5) 0%, rgba(0,0,0,0) 100%);
+		background-image: -moz-radial-gradient(center, contain, rgba(0,32,64,0.5) 0%, rgba(0,0,0,0) 100%);
+		background-image: -webkit-radial-gradient(center, contain, rgba(0,32,64,0.5) 0%, rgba(0,0,0,0) 100%);
+	}
 }
 </style>
 </head>
@@ -90,6 +109,7 @@ section#section {
 <section id="section">
 <aside id="aside">
 </aside>
+<div id="separator">&nbsp;</div>
 <article id="article">
 <form method="post" action="http://daemon.nfshost.com/mailer.d/">
 <input type="text" name="name" id="name" placeholder="Your Name" />
