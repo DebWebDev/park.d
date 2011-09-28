@@ -37,7 +37,6 @@ body {
 }
 header#header  {
 	width: 100%;
-	height: 50%;
 	background: #eee;
 	border-bottom: 2px solid #999;
 	box-shadow: 0 0 20px #000;
@@ -98,6 +97,17 @@ section > *:nth-child(odd) { padding: 0 64px; }
 		background-image: -webkit-radial-gradient(center, contain, rgba(0,32,64,0.5) 0%, rgba(0,0,0,0) 100%);
 	}
 }
+#section #aside {
+	color: #ccc;
+	text-shadow: 0 0 1px #333, 0 0 5px #999;
+}
+#section #aside ul {
+	margin: 24px auto;
+	list-style-image: url("data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAlNJREFUeNqkk8trE0Ecx3+7mSSbNA9rkgas1tD0YqMgFIViJEUPbYIVKmIFiRBLD140hf4VgkcvRXIoglXQg3iIeDFEfKQV1JBETNIY0+apbRo1ze7O7jq7AV+1uWSW2YWZ+XxnZ+YzlCRJ0E2hocuCBImH12sPoMk3gKY650nKjBR54KpWpU8eP3A+ggQRQ3ojBg22SgJUHWFEcA5w6KXwPmClen/sMx2aQnKnmtaSynQMQKSPJ3B0+11gFZehAvWedH1lWgmgKIrA1O4wTWAJh55sxgJZtggmWg8TlpPJEfv4DVpFIzlgihX5JTLQ+V9YxLcfl14Fkl8LoGvpYNx87MMA0+/TqXs/0mtb8cnwp+i9UOrpdP5bJcwgzdCfMCfihYe5FzPxUh50LAOT9tFkP2Ob4EQuL0oC0FtczVmqf1GvVzdhKR4dymwUw4xaM4hUMswv3E9EZ99+zoGe08E5hzux32D1kfb8Lw+GrZ5b/iNnbrr2DECl1oDF2DNnulZ8JIji3TvLkdk3qzkwCj1wcdiTOGiy+Vj8G1b+khwPr0Ga+QtHT6hwC4IruSwsPo+4zDq9K1Mtg9VgBP/IWMKxt8/b4rnCjj2SVcaCAGoVmvOPegC3xOByJgtFqg4WowGuuE+nBm127za3E1YC5JcoYWAxC1qkmbvscdOtFnstV67CzKmxlKPP4v3ONgt/SyUqTNsPoq+ZsRMPkCISYujr82cvNZose9hiNAY5jPMM86+VIjDIoKhPyUuQj6MtK6V85VDZ+Hb77oLJE1LdXuefAgwAaBf94E4TAhYAAAAASUVORK5CYII=");
+}
+#section #aside ul li {
+	margin: 4px;
+}
 </style>
 </head>
 <body>
@@ -108,6 +118,10 @@ section > *:nth-child(odd) { padding: 0 64px; }
 </header>
 <section id="section">
 <aside id="aside">
+<p>Here are the &quot;for sale&quot; TLDs available under the same domain name:</p>
+<ul id="tldList"></ul>
+<p><b>ACT NOW</b>, before they're all SOLD OUT.</p>
+<p>You can order the entire bundle, or only the one that is your favorite!</p>
 </aside>
 <div id="separator">&nbsp;</div>
 <article id="article">
@@ -134,12 +148,11 @@ function renderHeader (h) {
 } renderHeader ({h1:"name",h2:"desc"});
 // ---------- - Render Header ---------- //
 // ---------- + Render Aside ---------- //
-nodeAside = "<ul>";
+var nodeAside = "";
 for (var i in scope.tld) {
 	nodeAside += "<li>" + scope.name.toLowerCase() + "." + scope.tld[i] + "</li>";
 }
-nodeAside += "</ul>";
-document.getElementById("aside").innerHTML = nodeAside;
+document.getElementById("tldList").innerHTML = nodeAside;
 // ---------- - Render Aside ---------- //
 </script>
 </body>
