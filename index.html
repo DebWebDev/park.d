@@ -33,7 +33,7 @@ body {
 	background-image: radial-gradient(top, cover, #4080b0 0%, #003060 100%);
 	background-image: -moz-radial-gradient(top, cover, #4080b0 0%, #003060 100%);
 	background-image: -webkit-radial-gradient(top, cover, #4080b0 0%, #003060 100%);
-	font-family: Verdana, Geneva, Helvetica sans-serif;
+	font-family: Verdana, Geneva, Helvetica, sans-serif;
 }
 header#header  {
 	width: 100%;
@@ -108,12 +108,45 @@ section > *:nth-child(odd) { padding: 0 64px; }
 #section #aside ul li {
 	margin: 4px;
 }
+#article form input,
+#article form textarea {
+	color: #ccc;
+	width: 98%;
+	padding: 5px;
+	margin-bottom: 8px;
+	border-radius: 5px;
+	border: 2px solid rgba(0,0,0,0.5);
+	background-color: rgba(255,255,255,0.25);
+	font: 16px Verdana, Geneva, Helvetica, sans-serif;
+}
+::-webkit-input-placeholder { color: #ccc; }
+#article form input:focus,
+#article form textarea:focus {
+	color: #333;
+	box-shadow: 0 0 10px #c00;
+	background-color: rgba(255,255,255,0.5);
+}
+#article form input[type="submit"] {
+	color: #aaa;
+	background-color: rgba(0,0,0,0.25);
+}
+#article form input[type="submit"]:hover,
+#article form input[type="submit"]:focus {
+	color: #333;
+	background-color: rgba(255,255,255,0.5);
+	text-shadow: 0 0 5px #666;
+	box-shadow: 0 0 10px #c00;
+}
+#article form input[type="submit"]:active {
+	color: #eee;
+	box-shadow: 0 0 10px #ccc;
+}
 </style>
 </head>
 <body>
 <header id="header">
 <nav>
-<h3>This domain is up for sale... bid NOW!</h3>
+<h3 onClick="document.getElementById('message').focus();">This domain is up for sale... bid NOW!</h3>
 </nav>
 </header>
 <section id="section">
@@ -126,13 +159,14 @@ section > *:nth-child(odd) { padding: 0 64px; }
 <div id="separator">&nbsp;</div>
 <article id="article">
 <form method="post" action="http://daemon.nfshost.com/mailer.d/">
-<input type="text" name="name" id="name" placeholder="Your Name" />
-<input type="email" name="email" id="email" placeholder="email@account.com" />
+<input type="text" name="name" id="name" placeholder="Your Name/Organization" />
 <br />
-<textarea name="message" id="message" rows="7" placeholder="The amount, that you offer..."></textarea>
+<input type="email" name="email" id="email" placeholder="Your email@account.com" />
 <br />
-<input type="text" name="subject" id="subject" placeholder="Which domain (if specific)" />
-<input type="submit" name="parking" id="parking" value="Make offer" />
+<textarea name="message" id="message" rows="3" placeholder="Make your offer... try to keep it short."></textarea>
+<br />
+<input type="text" name="subject" id="subject" placeholder="Put a Subject" style="width: 60%; float: left;" />
+<input type="submit" name="parking" id="parking" value="Send" style="width: 30%; float: right;" />
 </form>
 </article>
 </section>
